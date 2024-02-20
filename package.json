@@ -1,0 +1,22 @@
+{
+  "name": "get-my-gho",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "forge script script/GetMyGho.s.sol:Deploy --rpc-url https://rpc.ankr.com/eth -vvvvv --broadcast --verify",
+    "dryrun": "forge script script/GetMyGho.s.sol:DryRun --rpc-url https://rpc.ankr.com/eth -vvvvv",
+    "execute": "forge script script/GetMyGho.s.sol:Execute --rpc-url https://rpc.ankr.com/eth -vvvvv --broadcast --verify"
+  },
+  "dependencies": {
+    "connectkit": "1.6.0",
+    "next": "14.0.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "viem": "1.21.4",
+    "wagmi": "1.4.13"
+  }
+}

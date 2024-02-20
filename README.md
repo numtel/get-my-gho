@@ -1,66 +1,48 @@
-## Foundry
+# Get My GHO
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+*I've got GHO on mainnet but no ETH to do anything with it!*
 
-Foundry consists of:
+Help me out by swapping it to ETH and I'll give you 0.07 ETH. Deploying and executing the swaps/transfers costs about this much at 50 gwei so wait for low gas to perform transactions to make a profit.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Installation
 
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```sh
+$ git clone https://github.com/numtel/get-my-gho
+$ cd get-my-gho
+$ forge install
 ```
 
-### Test
+> `npm install` is only required to run the frontend signature creator
 
-```shell
-$ forge test
+## Operation
+
+
+### 0. Dry Run
+
+Test that the script is configured successfully. You will need to supply a valid permit in `.env`.
+
+```sh
+$ yarn dryrun
 ```
 
-### Format
+### 1. Deploy the contract
 
-```shell
-$ forge fmt
+```sh
+$ cp .env.example .env
+$ vim .env
+# Update PRIVATE_KEY and ETHERSCAN_API_KEY values
+$ yarn deploy
+
 ```
 
-### Gas Snapshots
+Now, tell me the address of the deployed contract. I will check it on Etherscan and send you back the permit for the spend.
 
-```shell
-$ forge snapshot
+### 2. Execute the swapper
+
+```sh
+$ vim .env
+# Update PERMIT_DEADLINE, PERMIT, and GETMYGHO (contract address) values.
+$ yarn execute
 ```
 
-### Anvil
 
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
